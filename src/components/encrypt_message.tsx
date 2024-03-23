@@ -37,9 +37,9 @@ const EncryptStringComponent: React.FC<EncryptStringComponentProps> = ({ plainte
   };
 
   return (
-    <div>
+    <div className="text-black">
       <button onClick={handleEncryptClick}>Encrypt</button>
-      <div>Encrypted Text: {encryptedText}</div>
+      <div className="text-black">Encrypted Text: {encryptedText}</div>
     </div>
   );
 };
