@@ -1,9 +1,9 @@
-import '../styles/globals.css';
-import '@rainbow-me/rainbowkit/styles.css';
-import type { AppProps } from 'next/app';
-import { defineChain } from 'viem'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { WagmiProvider } from 'wagmi';
+import "../styles/globals.css";
+import "@rainbow-me/rainbowkit/styles.css";
+import type { AppProps } from "next/app";
+import { defineChain } from "viem";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { WagmiProvider } from "wagmi";
 import {
   arbitrum,
   base,
@@ -12,28 +12,31 @@ import {
   polygon,
   sepolia,
   zora,
-} from 'wagmi/chains';
-import { getDefaultConfig, RainbowKitProvider } from '@rainbow-me/rainbowkit';
-import Navbar from '@/components/navbar';
+} from "wagmi/chains";
+import { getDefaultConfig, RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import Navbar from "@/components/navbar";
 
 export const etherlink = defineChain({
   id: 128123,
-  name: 'Etherlink Testnet',
-  nativeCurrency: { name: 'Tez', symbol: 'XTZ', decimals: 18 },
+  name: "Etherlink Testnet",
+  nativeCurrency: { name: "Tez", symbol: "XTZ", decimals: 18 },
   rpcUrls: {
-    default: { http: ['https://node.ghostnet.etherlink.com/'] },
+    default: { http: ["https://node.ghostnet.etherlink.com/"] },
   },
   blockExplorers: {
-    default: { name: 'Etherlink Testnet explorer', url: 'https://testnet-explorer.etherlink.com/' },
+    default: {
+      name: "Etherlink Testnet explorer",
+      url: "https://testnet-explorer.etherlink.com/",
+    },
   },
-})
+});
 
 const config = getDefaultConfig({
-  appName: 'RainbowKit App',
-  projectId: 'YOUR_PROJECT_ID',
+  appName: "RainbowKit App",
+  projectId: "YOUR_PROJECT_ID",
   chains: [
     etherlink,
-    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [sepolia] : []),
+    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === "true" ? [sepolia] : []),
   ],
   ssr: true,
 });
@@ -46,7 +49,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <QueryClientProvider client={client}>
         <RainbowKitProvider>
           <Navbar />
-          <Component {...pageProps} />
+          <div className="mt-32">
+            <Component {...pageProps} />
+          </div>
         </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
