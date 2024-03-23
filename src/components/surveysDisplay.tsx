@@ -17,7 +17,7 @@ export const SurveyDisplay = () => {
         setCurrentIndex(index);
         setShowAnswer(true);
     };
-    const [isModalOpen, setIsModalOpen] = useState(false);
+  
 
     const closeModal = () => {
         setShowAnswer(false);
