@@ -2,3 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root{
+    @apply bg-gray-100 w-screen h-screen;
+}
