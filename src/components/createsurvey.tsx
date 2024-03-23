@@ -2,7 +2,7 @@ import { createRef, useEffect, useState } from 'react';
 import SurveyQuestions from '@/types/surveyquestions';
 import { useAccount, useWriteContract } from 'wagmi';
 import { type WriteContractParameters } from '@wagmi/core'
-import Answers from './answers';
+import Answers from './possibleAnswers';
 import { surveysContract } from '@/contracts';
 
 export default function CreateSurvey() {
@@ -37,7 +37,7 @@ export default function CreateSurvey() {
                         `${question.question}@${question.possibleAnswers.join('|')}`,
                 )
                 .join(';'),
-            BigInt(100),
+            BigInt(maxResponse),
             'description',
             'public_key',
             BigInt(questions.length),
@@ -94,8 +94,8 @@ export default function CreateSurvey() {
                     Add question
                 </button>
             </div>
-                <input type="number" value={maxResponse} onChange={(event) => setMaxResponse(parseInt(event.target.value))} />
-            <button onClick={() => handleSendSurvey()}>Send Survey</button>
+                <input className='rounded-2xl text-black border border-purple-800 py-2 px-4' type="number" value={maxResponse} onChange={(event) => setMaxResponse(parseInt(event.target.value))} />
+            <button className='rounded-2xl text-black border border-purple-800 p-2' onClick={() => handleSendSurvey()}>Send Survey</button>
         </div>
     );
 }

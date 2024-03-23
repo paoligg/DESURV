@@ -66,7 +66,7 @@ export default function Answers({ questions, setQuestions, index }: { questions:
             onBlur={handleNewAnswerBlur}
           />
         )}
-      <button id={`add_button_${index}`} onClick={() => handleAddingAnswer()}>
+      <button className="bottom-2" id={`add_button_${index}`} onClick={() => handleAddingAnswer()}>
         Add possible answer
       </button>
     </div>
