@@ -18,6 +18,7 @@ export const SurveyDisplay: React.FC = () => {
         setCurrentIndex(index);
         setShowAnswer(true);
     };
+  
 
     const closeModal = () => {
         setShowAnswer(false);
