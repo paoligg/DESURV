@@ -4,11 +4,7 @@ interface EncryptStringComponentProps {
   plaintext: string;
 }
 
-const EncryptStringComponent: React.FC<EncryptStringComponentProps> = ({ plaintext }) => {
-  const [encryptedText, setEncryptedText] = useState<string>('');
-
-  // Moved publicKeyPem inside the component for direct access
-  const publicKeyPem = `-----BEGIN PUBLIC KEY-----
+ export const publicKeyPem = `-----BEGIN PUBLIC KEY-----
   MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA21AKOl7FkKOlhpxlLO5J
   GePb/Bod9yZN+y4HvjoG9fgy5VWNEL+m7G8Kc5TNQFro3FioUUlVNITH+6B3QeEF
   BVbKGEzXXpWxhb3s2EBPS08Etd4QdWCv4keaexUXEDeg/g+a3T7ILB4ioG/NrzSm
@@ -18,6 +14,10 @@ const EncryptStringComponent: React.FC<EncryptStringComponentProps> = ({ plainte
   jQIDAQAB
   -----END PUBLIC KEY-----`;
 
+const EncryptStringComponent: React.FC<EncryptStringComponentProps> = ({ plaintext }) => {
+  const [encryptedText, setEncryptedText] = useState<string>('');
+
+  // Moved publicKeyPem inside the component for direct access
   const handleEncryptClick = async () => {
     const publicKey = await pemToPublicKey(publicKeyPem);
     console.log("Public key:", publicKey);
@@ -48,7 +48,7 @@ export default EncryptStringComponent;
 
 // Helper functions: pemToPublicKey, encryptWithPublicKey, and arrayBufferToBase64
 // should be implemented as previously shown.
-async function pemToPublicKey(pem: string): Promise<CryptoKey> {
+export async function pemToPublicKey(pem: string): Promise<CryptoKey> {
     const pemHeader = "-----BEGIN PUBLIC KEY-----";
     const pemFooter = "-----END PUBLIC KEY-----";
     const pemContents = pem.replace(pemHeader, "").replace(pemFooter, "").replace(/\s/g, "");
@@ -65,7 +65,7 @@ async function pemToPublicKey(pem: string): Promise<CryptoKey> {
         ["encrypt"]
     );
   }
-  async function encryptMessage(publicKey: CryptoKey, message: string): Promise<ArrayBuffer> {
+  export async function encryptMessage(publicKey: CryptoKey, message: string): Promise<ArrayBuffer> {
     let encodedMessage = new TextEncoder().encode(message);
     return window.crypto.subtle.encrypt(
       {
@@ -75,7 +75,7 @@ async function pemToPublicKey(pem: string): Promise<CryptoKey> {
       encodedMessage
     );
   }
-  function arrayBufferToBase64(buffer: ArrayBuffer): string {
+export function arrayBufferToBase64(buffer: ArrayBuffer): string {
     let binary = '';
     let bytes = new Uint8Array(buffer);
     let len = bytes.byteLength;

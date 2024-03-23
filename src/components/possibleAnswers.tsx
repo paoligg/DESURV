@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
-import SurveyQuestions from "@/types/surveyquestions";
+import { useEffect, useState, RefObject } from "react";
+import SurveyQuestion from "@/types/surveyquestion";
 import {createRef} from "react";
 
-export default function Answers({ questions, setQuestions, index }: { questions: SurveyQuestions[], setQuestions: (questions: SurveyQuestions[]) => void, index: number }) {
+export default function Answers({ questions, setQuestions, index }: { questions: {survey : SurveyQuestion, questionRef : RefObject<HTMLInputElement>}[], setQuestions: (questions: {survey : SurveyQuestion, questionRef : RefObject<HTMLInputElement>}[]) => void, index: number }) {
   const setAnswers = (answers: string[]) => {
     const newQuestions = [...questions];
-    newQuestions[index].possibleAnswers = answers;
+    newQuestions[index].survey.possibleAnswers = answers;
     setQuestions(newQuestions);
   }
   const getAnswers = () => {
-    return [...questions[index].possibleAnswers];
+    return [...questions[index].survey.possibleAnswers];
   }
   const [isAddingAnswer, setIsAddingAnswer] = useState<boolean>(false);
   const newAnswerRef = createRef<HTMLInputElement>();

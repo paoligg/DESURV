@@ -1,16 +1,12 @@
 export const surveysContract = {
-    address: '0xC5386e3073A9f952DA4B1Bbe7F08baed44D58E77',
+    address: '0x5dD92aB856C985cE6Ac614F5f00ccffB5029CAE3',
     abi: [
         {
             type: 'function',
             name: 'answerSurvey',
             inputs: [
                 { name: '_surveyId', type: 'uint256', internalType: 'uint256' },
-                {
-                    name: '_answers',
-                    type: 'string[]',
-                    internalType: 'string[]',
-                },
+                { name: '_answers', type: 'string', internalType: 'string' },
             ],
             outputs: [],
             stateMutability: 'nonpayable',
@@ -39,6 +35,11 @@ export const surveysContract = {
                     name: '_nombre_question',
                     type: 'uint256',
                     internalType: 'uint256',
+                },
+                {
+                    name: 'nom_enseigne',
+                    type: 'string',
+                    internalType: 'string',
                 },
             ],
             outputs: [],
@@ -78,8 +79,8 @@ export const surveysContract = {
                         },
                         {
                             name: 'answers',
-                            type: 'string[]',
-                            internalType: 'string[]',
+                            type: 'string',
+                            internalType: 'string',
                         },
                     ],
                 },
@@ -100,6 +101,7 @@ export const surveysContract = {
                     type: 'address',
                     internalType: 'address',
                 },
+                { name: 'answers', type: 'string', internalType: 'string' },
             ],
             stateMutability: 'view',
         },
@@ -140,6 +142,11 @@ export const surveysContract = {
                     name: 'nombre_question',
                     type: 'uint256',
                     internalType: 'uint256',
+                },
+                {
+                    name: 'nom_enseigne',
+                    type: 'string',
+                    internalType: 'string',
                 },
             ],
             stateMutability: 'view',

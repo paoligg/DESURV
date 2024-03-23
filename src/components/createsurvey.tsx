@@ -1,18 +1,18 @@
-import { createRef, useEffect, useState } from 'react';
-import SurveyQuestions from '@/types/surveyquestions';
+import { createRef, useEffect, useState,RefObject } from 'react';
+import SurveyQuestion from '@/types/surveyquestion';
 import { useAccount, useWriteContract } from 'wagmi';
 import { type WriteContractParameters } from '@wagmi/core'
 import Answers from './possibleAnswers';
 import { surveysContract } from '@/contracts';
 
 export default function CreateSurvey() {
-    const [questions, setQuestions] = useState<SurveyQuestions[]>([]);
+    const [questions, setQuestions] = useState<{survey : SurveyQuestion, questionRef: RefObject<HTMLInputElement>} []>([]);
     const [maxResponse, setMaxResponse] = useState<number>(0);
     const account = useAccount();
     const { writeContract } = useWriteContract();
     const handleQuestionChange = (index: number, question: string) => {
         const newQuestions = [...questions];
-        newQuestions[index].question = question;
+        newQuestions[index].survey.question = question;
         setQuestions(newQuestions);
     };
     useEffect(() => {
@@ -21,9 +21,10 @@ export default function CreateSurvey() {
     const handleAddQuestion = () => {
         const newQuestions = [...questions];
         const newQuestion = {
-            question: '',
             questionRef: createRef<HTMLInputElement>(),
-            possibleAnswers: [],
+            survey : {
+            question: '',
+            possibleAnswers: []}
         };
         newQuestions.push(newQuestion);
         setQuestions(newQuestions);
@@ -34,13 +35,14 @@ export default function CreateSurvey() {
             questions
                 .map(
                     (question) =>
-                        `${question.question}@${question.possibleAnswers.join('|')}`,
+                        `${question.survey.question}@${question.survey.possibleAnswers.join('|')}`,
                 )
                 .join(';'),
             BigInt(maxResponse),
             'description',
             'public_key',
             BigInt(questions.length),
+            'SG'
         ];
         const variables : WriteContractParameters = {
             account: account.address,
@@ -78,7 +80,7 @@ export default function CreateSurvey() {
                         <input
                             className="bg-transparent  border border-white text-center  p-2 text-xl rounded-md"
                             ref={question.questionRef}
-                            value={question.question}
+                            value={question.survey.question}
                             onChange={(event) =>
                                 handleQuestionChange(index, event.target.value)
                             }
