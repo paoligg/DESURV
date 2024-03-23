@@ -1,15 +1,22 @@
 import React from 'react';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import myImage from '/public/Logo_Desurv.png';
+import Logo_Desurv from '/public/Logo_Desurv.png';
 import Image from 'next/image'
-import Link from 'next/link';
+import Logo_entreprise from '/public/Logo_create_survey.png';
+import answer_survey from '/public/logo_answer_survey.png';
 
 function Navbar() {
   return (
     <nav className="text-white h-32 px-8 flex items-center justify-between gap-4 fixed top-0 w-full z-10">
                        
       <a href="/">
-      <Image src={myImage} height="120" width="120" alt="Description" />
+      <Image src={Logo_Desurv} height="120" width="120" alt="Description" />
+      </a>
+      <a href="/">
+      <Image src={answer_survey} height="60" width="60" alt="Description" />
+      </a>
+      <a href="/">
+      <Image src={Logo_entreprise} height="60" width="60" alt="Description" />
       </a>
             <ConnectButton />
   </nav>
