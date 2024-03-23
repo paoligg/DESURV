@@ -1,5 +1,7 @@
+import { RefObject } from "react";
+
 export default interface SurveyQuestions {
   question: string;
-  questionRef: React.RefObject<HTMLInputElement>;
+  questionRef: RefObject<HTMLInputElement>;
   possibleAnswers: string[];
 }
