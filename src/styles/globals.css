@@ -21,7 +21,7 @@ a {
 @tailwind utilities;
 
 :root{
-    @apply bg-gray-100 w-screen h-screen;
+    @apply text-white w-screen h-screen;
     background-image: url("../../public/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;

@@ -3,6 +3,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import EncryptStringComponent from '@/components/encrypt_message';
 import DecryptStringComponent from '@/components/decrypt_message';
+import CreateSurvey from '@/components/createsurvey';
 
 const Home: NextPage = () => {
   const [inputMessage, setInputMessage] = useState<string>('');
@@ -33,6 +34,8 @@ const Home: NextPage = () => {
         />
         <DecryptStringComponent encryptedText={encryptedMessage}/>
       </main>
+
+      <CreateSurvey />
     </div>
   );
 };

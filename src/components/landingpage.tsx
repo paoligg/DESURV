@@ -7,7 +7,6 @@ const LandingPage = () => {
 //         functionName: "getNumberGames",
 //     });
 
-
   return (
     <div className="grid-container">
       <div className="teamSection">
