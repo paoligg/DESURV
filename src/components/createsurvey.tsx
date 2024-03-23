@@ -2,11 +2,12 @@ import { createRef, useEffect, useState } from 'react';
 import SurveyQuestions from '@/types/surveyquestions';
 import { useAccount, useWriteContract } from 'wagmi';
 import { type WriteContractParameters } from '@wagmi/core'
-import Question from './question';
+import Answers from './answers';
 import { surveysContract } from '@/contracts';
 
 export default function CreateSurvey() {
     const [questions, setQuestions] = useState<SurveyQuestions[]>([]);
+    const [maxResponse, setMaxResponse] = useState<number>(0);
     const account = useAccount();
     const { writeContract } = useWriteContract();
     const handleQuestionChange = (index: number, question: string) => {
@@ -69,31 +70,32 @@ export default function CreateSurvey() {
     };
 
     return (
-        <>
+        <div className='flex flex-col gap-8 justify-center items-center'>
             <h1>Create a survey</h1>
-            <div className="flex flex-row flex-wrap ">
+            <div className="flex flex-row flex-wrap p-4 gap-8">
                 {questions.map((question, index) => (
-                    <div key={index} className="flex flex-col p-4">
+                    <div key={index} className="flex flex-col px-4 py-10 opacity-80 shadow-[20px_20px_20px_0px] shadow-black bg-red-500 rounded-3xl hover:bg-red-400">
                         <input
-                            className="bg-slate-950 text-center"
+                            className="bg-transparent  border border-white text-center  p-2 text-xl rounded-md"
                             ref={question.questionRef}
                             value={question.question}
                             onChange={(event) =>
                                 handleQuestionChange(index, event.target.value)
                             }
                         />
-                        <Question
+                        <Answers
                             questions={questions}
                             setQuestions={setQuestions}
                             index={index}
                         />
                     </div>
                 ))}
-                <button onClick={() => handleAddQuestion()}>
+                <button className='text-purple-800 font-bold text-xl' onClick={() => handleAddQuestion()}>
                     Add question
                 </button>
             </div>
+                <input type="number" value={maxResponse} onChange={(event) => setMaxResponse(parseInt(event.target.value))} />
             <button onClick={() => handleSendSurvey()}>Send Survey</button>
-        </>
+        </div>
     );
 }

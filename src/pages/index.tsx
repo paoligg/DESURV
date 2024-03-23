@@ -16,6 +16,7 @@ const Home: NextPage = () => {
         <title>Encryption Test</title>
       </Head>
       <main>
+        <CreateSurvey />
         <h1>
           Encryption/Decryption Test
         </h1>

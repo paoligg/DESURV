@@ -21,8 +21,6 @@ a {
 @tailwind utilities;
 
 :root{
-    @apply text-white w-screen h-screen;
-    background-image: url("../../public/background.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    @apply text-white w-screen h-screen ;
+    background : linear-gradient(135deg, rgba(234,182,252,1) 5%, rgba(255,247,252,1) 35%, rgba(255,247,252,1) 67%, rgba(234,182,252,1) 95%);
 }

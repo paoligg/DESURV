@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import SurveyQuestions from "@/types/surveyquestions";
 import {createRef} from "react";
 
-export default function Question({ questions, setQuestions, index }: { questions: SurveyQuestions[], setQuestions: (questions: SurveyQuestions[]) => void, index: number }) {
-  const [isAddingAnswer, setIsAddingAnswer] = useState<boolean>(false);
+export default function Answers({ questions, setQuestions, index }: { questions: SurveyQuestions[], setQuestions: (questions: SurveyQuestions[]) => void, index: number }) {
   const setAnswers = (answers: string[]) => {
     const newQuestions = [...questions];
     newQuestions[index].possibleAnswers = answers;
@@ -12,22 +11,36 @@ export default function Question({ questions, setQuestions, index }: { questions
   const getAnswers = () => {
     return [...questions[index].possibleAnswers];
   }
+  const [isAddingAnswer, setIsAddingAnswer] = useState<boolean>(false);
   const newAnswerRef = createRef<HTMLInputElement>();
+
+  const inputStyle = "bg-white py-2 px-4 rounded-md text-black";
+
   const handleChangeAnswer = ( answerIndex: number, answer: string) => {
     const newAnswers = getAnswers();
     newAnswers[answerIndex] = answer;
     setAnswers(newAnswers);
   }
-  const handleNewAnswerBlur = (inputValue: string) => {
-    const newAnswers = getAnswers();
-    if (inputValue !== "") {
-      newAnswers.push(inputValue);
+  const handleNewAnswerBlur = (event : React.FocusEvent<HTMLInputElement, Element>) => {
+    if(event.relatedTarget?.id == `add_button_${index}`)
+    {
+      newAnswerRef.current?.focus();
+      return;
     }
-    setIsAddingAnswer(false);
-    setAnswers(newAnswers);
+
+    const inputValue = event.target.value;
+    if (inputValue !== "") {
+      const newAnswers = getAnswers();
+      newAnswers.push(inputValue);
+      setAnswers(newAnswers);
+    }
+      setIsAddingAnswer(false);
+      console.log("blur");
   };
   const handleAddingAnswer = () => {
+    if (!isAddingAnswer)
     setIsAddingAnswer(true);
+    console.log("add");
   };
   useEffect(() => {
     if(isAddingAnswer)
@@ -35,11 +48,10 @@ export default function Question({ questions, setQuestions, index }: { questions
   }, [isAddingAnswer]);
 
   return (
-    <div>
       <div className="p-4 flex flex-col gap-2">
         {getAnswers().map((answer, answerIndex) => (
           <input
-          className="bg-slate-950"
+          className={inputStyle}
             value={answer}
             key={answerIndex}
             onChange={(event) =>
@@ -49,14 +61,12 @@ export default function Question({ questions, setQuestions, index }: { questions
         ))}
         {isAddingAnswer && (
           <input
-          className="bg-slate-950"
+          className={inputStyle}
             ref={newAnswerRef}
-            onBlur={(event) => handleNewAnswerBlur(event.target.value)}
+            onBlur={handleNewAnswerBlur}
           />
         )}
-      </div>
-
-      <button onClick={() => handleAddingAnswer()}>
+      <button id={`add_button_${index}`} onClick={() => handleAddingAnswer()}>
         Add possible answer
       </button>
     </div>
