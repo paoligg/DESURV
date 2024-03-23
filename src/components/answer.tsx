@@ -31,18 +31,12 @@ const Answer = (props: AnswerProps) => {
         return (
             <div>
                 <div>Questions du sondage {props.index + 1}</div>
-
                 <div>Entreprise : {survey[7]}</div>
                 <div>Reward : {Number(survey[2])}xtz</div>
                 {Object.entries(surveyQuestions).map(([question, answers], index) => (
                 <div key={index}>
                     <br></br>
                     <h2>{question}</h2>
-                    <ul>
-                    {answers.map((answer, answerIndex) => (
-                        <li key={answerIndex}>{answer}</li>
-                    ))}
-                    </ul>
                 </div>
                 ))}
             </div>
