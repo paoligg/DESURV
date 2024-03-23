@@ -1,17 +1,41 @@
-import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { useState, useEffect } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import EncryptStringComponent from '@/components/encrypt_message';
+import DecryptStringComponent from '@/components/decrypt_message';
 
 const Home: NextPage = () => {
+  const [inputMessage, setInputMessage] = useState<string>('');
+  const [encryptedMessage, setEncryptedMessage] = useState<string>('');
+
   return (
+    <div>
+      <Head>
+        <title>Encryption Test</title>
+      </Head>
       <main>
         <h1>
-          Welcome to <a href="">RainbowKit</a> + <a href="">wagmi</a> +{' '}
-          <a href="https://nextjs.org">Next.js!</a>
+          Encryption/Decryption Test
         </h1>
+        <input
+          type="text"
+          value={inputMessage}
+          onChange={(e) => setInputMessage(e.target.value)}
+          placeholder="Enter message to encrypt"
+        />
+        <EncryptStringComponent plaintext={inputMessage}/> 
 
+        <input
+          type="text"
+          value={encryptedMessage}
+          onChange={(e) => setEncryptedMessage(e.target.value)}
+          placeholder="Enter encrypted message to decrypt"
+        />
+        <DecryptStringComponent encryptedText={encryptedMessage}/>
       </main>
+    </div>
   );
 };
+
 
 export default Home;
