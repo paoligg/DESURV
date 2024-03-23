@@ -14,6 +14,7 @@ import {
   zora,
 } from 'wagmi/chains';
 import { getDefaultConfig, RainbowKitProvider } from '@rainbow-me/rainbowkit';
+import Navbar from '@/components/navbar';
 
 export const etherlink = defineChain({
   id: 128123,
@@ -44,6 +45,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <WagmiProvider config={config}>
       <QueryClientProvider client={client}>
         <RainbowKitProvider>
+          <Navbar />
           <Component {...pageProps} />
         </RainbowKitProvider>
       </QueryClientProvider>
