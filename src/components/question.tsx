@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import SurveyQuestions from "@/types/surveyquestions";
-import React from "react";
+import {createRef} from "react";
 
 export default function Question({ questions, setQuestions, index }: { questions: SurveyQuestions[], setQuestions: (questions: SurveyQuestions[]) => void, index: number }) {
   const [isAddingAnswer, setIsAddingAnswer] = useState<boolean>(false);
@@ -12,7 +12,7 @@ export default function Question({ questions, setQuestions, index }: { questions
   const getAnswers = () => {
     return [...questions[index].possibleAnswers];
   }
-  const newAnswerRef = React.createRef<HTMLInputElement>();
+  const newAnswerRef = createRef<HTMLInputElement>();
   const handleChangeAnswer = ( answerIndex: number, answer: string) => {
     const newAnswers = getAnswers();
     newAnswers[answerIndex] = answer;

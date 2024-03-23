@@ -30,8 +30,9 @@
     "typescript": "^5.0.4"
   },
   "prettier": {
-    "semi": false,
+    "semi": true,
     "singleQuote": true,
+    "tabWidth": 4,
     "plugins": [
       "prettier-plugin-tailwindcss"
     ]
