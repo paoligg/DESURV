@@ -4,7 +4,6 @@ import React from 'react';
 
 interface AnswerProps {
     index: number;
-    onClose: () => void;
 }
 
     const parseSurveyData = (data: string): Record<string, string[]> => {
@@ -31,11 +30,10 @@ const Answer = (props: AnswerProps) => {
 
         return (
             <div>
-                <div>Réponse pour le sondage {props.index + 1}</div>
-                <button className="close-button" onClick={props.onClose}>Close</button>
+                <div>Questions du sondage {props.index + 1}</div>
 
-                <div>Description : {survey[7]}</div>
-                <div>Reward : {Number(survey[2])}</div>
+                <div>Entreprise : {survey[7]}</div>
+                <div>Reward : {Number(survey[2])}xtz</div>
                 {Object.entries(surveyQuestions).map(([question, answers], index) => (
                 <div key={index}>
                     <br></br>

@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import type { NextPage } from 'next';
+import { NextPage } from 'next';
 import Head from 'next/head';
 import EncryptStringComponent from '@/components/encrypt_message';
 import DecryptStringComponent from '@/components/decrypt_message';
@@ -7,42 +6,32 @@ import CreateSurvey from '@/components/createsurvey';
 import SurveyDisplay from '@/components/surveysDisplay';
 
 const Home: NextPage = () => {
-  const [inputMessage, setInputMessage] = useState<string>('');
-  const [encryptedMessage, setEncryptedMessage] = useState<string>('');
-
   return (
-    <div>
+    <div className='grid grid-rows-[auto_1fr_auto] gap-4'>
       <Head>
-        <title>Encryption Test</title>
+        <title>My App</title>
+        <meta name="description" content="An awesome app" />
       </Head>
-      <main>
-        <CreateSurvey />
-        <h1>
-          Encryption/Decryption Test
-        </h1>
-        <input className='text-black'
-          type="text"
-          value={inputMessage}
-          onChange={(e) => setInputMessage(e.target.value)}
-          placeholder="Enter message to encrypt"
-        />
-        <EncryptStringComponent plaintext={inputMessage}/> 
 
-        <input className='text-black'
-          type="text"
-          value={encryptedMessage}
-          onChange={(e) => setEncryptedMessage(e.target.value)}
-          placeholder="Enter encrypted message to decrypt"
-        />
-        <DecryptStringComponent encryptedText={encryptedMessage}/>
-        <CreateSurvey />
+      {/* Optional: Any content you want at the top */}
+      <div>
+        {/* Your top content here */}
+      </div>
+
+      {/* This section now takes the remaining space but doesn't push the bottom content entirely to the bottom */}
+      <div className='flex-grow'>
+        {/* Adjust this space or content as needed */}
+      </div>
+
+      {/* Bottom content (your carousel, etc.) with adjusted spacing */}
+      <div className='flex flex-col gap-4'>
+        <div>
+          <span className='text-2xl'>Create Survey</span>
+        </div>
         <SurveyDisplay />
-      </main>
-
-      <CreateSurvey />
+      </div>
     </div>
   );
 };
-
 
 export default Home;
