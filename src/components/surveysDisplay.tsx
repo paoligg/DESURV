@@ -1,31 +1,45 @@
+import React, { useState } from 'react';
+import SurveyContent from './surveyContent';
+import Answer from './answer'; 
+import { useReadContract } from "wagmi";
 import { surveysContract } from "@/contracts";
-import { useReadContract, useWriteContract } from "wagmi";
-import SurveyContent from "./surveyContent";
 
 export const SurveyDisplay = () => {
-    const { data : surveyCount} = useReadContract({...surveysContract, functionName: "surveyCount",});
-    const surv= [];
+    const { data: surveyCount } = useReadContract({ ...surveysContract, functionName: "surveyCount" });
+    const [showAnswer, setShowAnswer] = useState(false);
+    const [currentIndex, setCurrentIndex] = useState(0);
+
     if (!surveyCount) {
         return <div>Loading...</div>;
     }
-    else {
-        console.log(surveyCount);
-        
-        for (let i = 0; i < surveyCount; i++) {
-            surv.push(".");
-        }
-    }
+
+    const handleSurveyClick = (index:number) => {
+        setCurrentIndex(index);
+        setShowAnswer(true);
+    };
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const closeModal = () => {
+        setShowAnswer(false);
+    };
+
     return (
         <div>
             <h1>Survey Display</h1>
-            <div>
-                {surv.map((_, index) => (
-                    <SurveyContent key={index} index={index} />
-                ))}
+            {showAnswer ? (
+                <Answer index={currentIndex} onClose={closeModal} />
+            ) : (
+                <div>
+                    {Array.from({ length: Number(surveyCount) }, (_, index) => (
+                        <div>
+                        <SurveyContent key={index} index={index} />
+                        <button onClick={() => handleSurveyClick(index)}>Answer</button>
+                        </div>
+                    ))}
                 </div>
+            )}
         </div>
     );
+};
 
- };
- 
- export default SurveyDisplay;
+export default SurveyDisplay;

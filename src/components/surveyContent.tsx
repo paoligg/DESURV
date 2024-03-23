@@ -4,15 +4,13 @@ import { useState } from "react";
 
 export function SurveyContent({index}:{index :number}) {
     const { data: survey } = useReadContract({...surveysContract, functionName: "surveys", args: [BigInt(index)]});
-    console.log(survey);
-
     return (
         <div>
             {survey === undefined ? <div>Loading...</div> : 
             <div>
                 Description : {survey[7]} <br/>
-                Survey ID : {Number(survey[0])} <br/>
-                Creator : {survey[1]} <br/>
+                {/* Survey ID : {Number(survey[0])} <br/> 
+                Creator : {survey[1]} <br/>*/}
                 Reward : {Number(survey[2])} <br/>
                 Questions : {
                     survey[4]
