@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import SurveyQuestion from '@/types/surveyquestion';
-import { Reply } from './replySurvey';
+import { Reply } from './replySurveyComponent';
 
 export default function chooseAnswer({
     replies,

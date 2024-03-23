@@ -15,7 +15,7 @@ function Navbar() {
       <a href="/">
       <Image src={answer_survey} height="60" width="60" alt="Description" />
       </a>
-      <a href="/">
+      <a href="/createSurvey">
       <Image src={Logo_entreprise} height="60" width="60" alt="Description" />
       </a>
             <ConnectButton />

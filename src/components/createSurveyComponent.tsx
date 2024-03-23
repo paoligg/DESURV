@@ -5,7 +5,7 @@ import { type WriteContractParameters } from '@wagmi/core'
 import Answers from './possibleAnswers';
 import { surveysContract } from '@/contracts';
 
-export default function CreateSurvey() {
+export default function CreateSurveyComponent() {
     const [questions, setQuestions] = useState<{survey : SurveyQuestion, questionRef: RefObject<HTMLInputElement>} []>([]);
     const [maxResponse, setMaxResponse] = useState<number>(0);
     const account = useAccount();

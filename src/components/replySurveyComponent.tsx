@@ -10,7 +10,8 @@ export interface Reply{
     choice: number;
 }
 
-export default function replySurvey({ surveyID }: { surveyID: number }) {
+export default function replySurveyComponent({ surveyID }: { surveyID: number }) {
+    console.log('surveyId',surveyID);
     const account = useAccount();
     const { data: survey } = useReadContract({
         abi: surveysContract.abi,
@@ -21,6 +22,8 @@ export default function replySurvey({ surveyID }: { surveyID: number }) {
     const { writeContract } = useWriteContract();
     const [replies,setReplies] = useState<Reply[]>([]);
     useEffect(() => {
+        console.log('test')
+    console.log(survey);
         if(replies.length === 0 && survey !== undefined){
             const newReplies  : Reply[]= [];
         const surveyData = survey[4];
@@ -29,9 +32,10 @@ export default function replySurvey({ surveyID }: { surveyID: number }) {
             const [question, answers] = item.split('@');
             newReplies.push({question : { question, possibleAnswers: answers.split('|') }, choice : -1});
         });
+        console.log('replies',newReplies);
         setReplies(newReplies);
     }
-    }, []);
+    }, [survey]);
     const hashAnswers = async () => {
         const joinedAnswers = replies.map((reply) => reply.question.possibleAnswers[reply.choice]).join('|');
         const publicKey = await pemToPublicKey(publicKeyPem);
