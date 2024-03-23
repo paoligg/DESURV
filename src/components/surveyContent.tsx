@@ -1,5 +1,6 @@
 import { surveysContract } from "../contracts";
 import { useReadContract, useWriteContract } from "wagmi";
+import { useState } from "react";
 
 export function SurveyContent({index}:{index :number}) {
     const { data: survey } = useReadContract({...surveysContract, functionName: "surveys", args: [BigInt(index)]});
@@ -18,7 +19,6 @@ export function SurveyContent({index}:{index :number}) {
                     } <br/>
                 Number of Responses : {Number(survey[5])} <br/>
                 Open : {survey[6] ? "Yes" : "No"} <br/>
-
             </div>
             }
 
