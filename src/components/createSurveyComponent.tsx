@@ -83,7 +83,7 @@ export default function CreateSurveyComponent() {
                 {questions.map((question, index) => (
                     <div
                         key={index}
-                        className="flex flex-col rounded-3xl bg-red-500 px-4 py-10 opacity-80 shadow-[20px_20px_20px_0px] shadow-black hover:bg-red-400"
+                        className="flex flex-col rounded-3xl bg-purple-500 px-4 py-10 opacity-80 shadow-[20px_20px_20px_0px] shadow-black hover:bg-purple-400"
                     >
                         <input
                             className="rounded-md  border border-white bg-transparent  p-2 text-center text-xl"

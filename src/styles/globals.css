@@ -22,5 +22,5 @@ a {
 
 :root{
     @apply text-white w-screen h-screen ;
-    background : linear-gradient(135deg, rgba(234,182,252,1) 5%, rgba(255,247,252,1) 35%, rgba(255,247,252,1) 67%, rgba(234,182,252,1) 95%);
+    background : linear-gradient(135deg, rgb(148, 1, 197) 5%, rgb(36, 8, 26) 35%, rgb(0, 0, 0) 67%, rgb(168, 5, 141) 95%);
 }

@@ -37,7 +37,7 @@ const Answer = (props: AnswerProps) => {
                 {Object.entries(surveyQuestions).slice(0, questionsToShow).map(([question, answers], index) => (
                     <div key={index}>
                         <br></br>
-                        <h2><u>Question {index + 1} :</u> <span className="hover:bg-red-800">{question}</span></h2>
+                        <h2><u>Question {index + 1} :</u> <span className="hover:bg-purple-800">{question}</span></h2>
                     </div>
                 ))}
                

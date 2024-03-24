@@ -6,7 +6,7 @@ const Home: NextPage = () => {
   return (
     <div className='grid grid-rows-[auto_1fr_auto] gap-4'>
       <Head>
-        <title>My App</title>
+        <title>DESURV</title>
         <meta name="description" content="An awesome app" />
       </Head>
 
@@ -19,17 +19,15 @@ const Home: NextPage = () => {
       <div className='flex-grow'>
         {/* Adjust this space or content as needed */}
       </div>
-
-      {/* Bottom content (your carousel, etc.) with adjusted spacing */}
-      <div className='flex flex-col gap-4'>
-        <div>
-          <span className='text-2xl'>Create Survey</span>
+        <div className='flex flex-col gap-4'>
+          <div className='text-center'>
+            <span className='text-2xl'>ANSWER SURVEYS</span>
+          </div>
+          <SurveyDisplay /> 
+        
         </div>
-        <SurveyDisplay /> 
-  
-      </div>
-    </div>
-  );
+          </div>
+        );
 };
 
 export default Home;
