@@ -8,6 +8,7 @@ Bienvenue sur DESURV la plateforme de sondages rémunérés décentralisée, une
 
 Notre solution est live !
 Vous pouvez directement tester notre projet à cette adresse : https://desurv.vercel.app/
+![LandingPage](/public/landing_page.png)
 
 ## À propos du projet
 
