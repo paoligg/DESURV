@@ -1,8 +1,8 @@
 ---
-
+# DESURV
 # Plateforme de Sondages Rémunérés Décentralisée
 
-Bienvenue sur la plateforme de sondages rémunérés décentralisée, une innovation permettant de connecter directement les entreprises et les consommateurs sans aucun intermédiaire. Notre solution utilise la technologie blockchain pour sécuriser les réponses et les données partagées, garantissant une transparence totale et une rémunération équitable pour les contributions des utilisateurs.
+Bienvenue sur DESURV la plateforme de sondages rémunérés décentralisée, une innovation permettant de connecter directement les entreprises et les consommateurs sans aucun intermédiaire. Notre solution utilise la technologie blockchain et la cryptograhie asymétrique pour sécuriser les réponses et les données partagées, garantissant une transparence totale et une rémunération équitable pour les contributions des utilisateurs.
 
 ## À propos du projet
 
