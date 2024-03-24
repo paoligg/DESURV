@@ -29,7 +29,6 @@ const Home: NextPage = () => {
           <span className='text-2xl'>Create Survey</span>
         </div>
         <SurveyDisplay /> 
-        <CreateSurvey />
   
       </div>
     </div>
