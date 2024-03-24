@@ -1,8 +1,8 @@
 import { useReadContract, useWriteContract, useAccount } from 'wagmi';
-import { encryptMessage, publicKeyPem, pemToPublicKey, arrayBufferToBase64 } from './encrypt_message';
+import { encryptMessage, publicKeyPem, pemToPublicKey, arrayBufferToBase64 } from './Encrypt_message';
 import { surveysContract } from '@/contracts';
 import SurveyQuestion from '@/types/surveyquestion';
-import ChooseAnswer from './chooseAnswer';
+import ChooseAnswer from './ChooseAnswer';
 import { useEffect, useState } from 'react';
 
 export interface Reply{

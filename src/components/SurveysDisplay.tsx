@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
-import SurveyContent from './surveyContent';
-import Answer from './answer';
+import SurveyContent from './SurveyContent';
+import Answer from './Answer';
 import { useReadContract } from "wagmi";
 import { surveysContract } from "@/contracts";
 

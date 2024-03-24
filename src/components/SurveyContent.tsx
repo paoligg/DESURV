@@ -1,6 +1,6 @@
 import { surveysContract } from "../contracts";
 import { useReadContract, useWriteContract } from "wagmi";
-import Answer from "./answer";
+import Answer from "./Answer";
 
 export function SurveyContent({index}:{index :number}) {
     const { data: survey } = useReadContract({...surveysContract, functionName: "surveys", args: [BigInt(index)]});

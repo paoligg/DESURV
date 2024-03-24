@@ -1,5 +1,5 @@
 import { useSearchParams } from 'next/navigation';
-import ReplySurveyComponent from '@/components/replySurveyComponent';
+import ReplySurveyComponent from '@/components/ReplySurveyComponent';
 
 export default function replySurvey() {
     //get from url search params the survey id
