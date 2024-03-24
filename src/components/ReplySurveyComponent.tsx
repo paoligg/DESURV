@@ -10,7 +10,7 @@ export interface Reply{
     choice: number;
 }
 
-export default function replySurveyComponent({ surveyID }: { surveyID: number }) {
+export default function ReplySurveyComponent({ surveyID }: { surveyID: number }) {
     console.log('surveyId',surveyID);
     const account = useAccount();
     const { data: survey } = useReadContract({
