@@ -75,15 +75,27 @@ export default function CreateSurveyComponent() {
             onSettled,
         });
     };
+    const handleBlurQuestion = (index: number) => {
+        if (
+            questions[index].survey.question === '' &&
+            questions.length > 1 &&
+            questions[index].survey.possibleAnswers.length === 0
+        ) {
+            const newQuestions = [...questions];
+            newQuestions.splice(index, 1);
+            setQuestions(newQuestions);
+        }
+    };
 
     return (
         <div className="flex flex-col items-center justify-center gap-8">
             <h1>Create a survey</h1>
-            <div className="flex flex-row flex-wrap items-stretch justify-center gap-8 p-4">
+            <div className="flex flex-row flex-wrap  justify-center gap-8 p-4">
                 {questions.map((question, index) => (
                     <div
                         key={index}
-                        className="flex h-full flex-col rounded-3xl bg-red-500 px-4 py-10 opacity-80 shadow-[20px_20px_20px_0px] shadow-black hover:bg-red-400"
+                        className="flex h-full flex-col self-stretch rounded-3xl bg-purple-500 px-4 py-10 opacity-80 shadow-[20px_20px_20px_0px] shadow-black hover:bg-purple-400"
+                        onBlur={() => handleBlurQuestion(index)}
                     >
                         <input
                             className="rounded-md  border border-white bg-transparent  p-2 text-center text-xl"
