@@ -58,7 +58,7 @@ export default function CreateSurveyComponent() {
             args,
             maxFeePerBlobGas: BigInt(Reward),
             blobs: [],
-            value: BigInt(1000),
+            value: BigInt(10000000000000000),
         };
         const onSuccess = (data: any) => {
             console.log(data);
