@@ -15,6 +15,7 @@ import {
 } from "wagmi/chains";
 import { getDefaultConfig, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 export const etherlink = defineChain({
   id: 128123,
@@ -52,6 +53,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <div className="mt-32">
             <Component {...pageProps} />
           </div>
+          <Footer />
         </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>

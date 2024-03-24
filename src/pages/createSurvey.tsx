@@ -89,8 +89,27 @@ export default function CreateSurveyComponent() {
 
     return (
         <div className="flex flex-col items-center justify-center gap-8">
-            <h1>Create a survey</h1>
+            <h1 className='text-4xl'>Create a survey</h1>
+             <div className="flex w-1/3 flex-col gap-4">
+                <div className="flex flex-col text-black">
+             <input
+                    className="rounded-2xl border border-purple-800 p-2 text-black"
+                    type="text"
+                    value={company}
+                    placeholder="Company"
+                    onChange={(event) => setCompany(event.target.value)}
+                />
+                <br />
+                 <textarea
+                    value={description}
+                    className="h-[15vh] rounded-2xl border border-purple-800 p-2 text-black"
+                    placeholder="Description"
+                    onChange={(event) => setDescription(event.target.value)}
+                />
+                </div>
+            </div>
             <div className="flex flex-row flex-wrap  justify-center gap-8 p-4">
+            
                 {questions.map((question, index) => (
                     <div
                         key={index}
@@ -125,7 +144,7 @@ export default function CreateSurveyComponent() {
                 </button>
             </div>
             <div className="flex w-1/3 flex-col gap-4">
-                <div className="flex flex-col text-black">
+                <div className="flex flex-col text-white">
                     <label className="-mb-1 ml-2">Max participants</label>
                     <input
                         className="rounded-2xl border border-purple-800 px-4 py-2 text-black"
@@ -136,7 +155,7 @@ export default function CreateSurveyComponent() {
                         }
                     />
                 </div>
-                <div className="flex flex-col text-black">
+                <div className="flex flex-col text-white">
                     <label className="-mb-1 ml-2">Reward</label>
                     <input
                         className="rounded-2xl border border-purple-800 px-4 py-2 text-black"
@@ -147,22 +166,11 @@ export default function CreateSurveyComponent() {
                         }
                     />
                 </div>
-                <textarea
-                    value={description}
-                    className="h-[15vh] rounded-2xl border border-purple-800 p-2 text-black"
-                    placeholder="Description"
-                    onChange={(event) => setDescription(event.target.value)}
-                />
-                <input
-                    className="rounded-2xl border border-purple-800 p-2 text-black"
-                    type="text"
-                    value={company}
-                    placeholder="Company"
-                    onChange={(event) => setCompany(event.target.value)}
-                />
+               
+               
             </div>
             <button
-                className="rounded-2xl border border-purple-800 p-2 text-black"
+                className="rounded-2xl border border-purple-800 p-2 text-white bg-purple-800 hover:bg-purple-700"
                 onClick={() => handleSendSurvey()}
             >
                 Send Survey

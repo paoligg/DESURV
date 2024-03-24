@@ -21,7 +21,7 @@ const Home: NextPage = () => {
       </div>
         <div className='flex flex-col gap-4'>
           <div className='text-center'>
-            <span className='text-2xl'>ANSWER SURVEYS</span>
+            <span className='text-4xl'>ANSWER SURVEYS</span>
           </div>
           <SurveyDisplay /> 
         

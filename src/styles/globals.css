@@ -21,6 +21,6 @@ a {
 @tailwind utilities;
 
 :root{
-    @apply text-white w-screen h-screen ;
+    @apply text-white;
     background : linear-gradient(135deg, rgb(148, 1, 197) 5%, rgb(36, 8, 26) 35%, rgb(0, 0, 0) 67%, rgb(168, 5, 141) 95%);
 }
