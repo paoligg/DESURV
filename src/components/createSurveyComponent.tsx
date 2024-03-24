@@ -78,7 +78,15 @@ export default function CreateSurveyComponent() {
 
     return (
         <div className="flex flex-col items-center justify-center gap-8">
-            <h1>Create a survey</h1>
+            <h1 className='text-2xl'>Create a survey</h1>
+            <h2 className='text-xl'>Entreprise</h2>
+            <input
+                className="rounded-2xl border border-purple-800 p-2 text-black"
+                type="text"
+                value={entreprise}
+                placeholder="Entreprise"
+                onChange={(event) => setEntreprise(event.target.value)}
+            />
             <div className="flex flex-row flex-wrap gap-8 p-4">
                 {questions.map((question, index) => (
                     <div
@@ -111,6 +119,7 @@ export default function CreateSurveyComponent() {
                 className="rounded-2xl border border-purple-800 px-4 py-2 text-black"
                 type="number"
                 value={maxResponse}
+                placeholder="Réponses Max"
                 onChange={(event) =>
                     setMaxResponse(parseInt(event.target.value))
                 }
@@ -127,15 +136,9 @@ export default function CreateSurveyComponent() {
                 placeholder="Description"
                 onChange={(event) => setDescription(event.target.value)}
             />
-            <input
-                className="rounded-2xl border border-purple-800 p-2 text-black"
-                type="text"
-                value={entreprise}
-                placeholder="Entreprise"
-                onChange={(event) => setEntreprise(event.target.value)}
-            />
+            
             <button
-                className="rounded-2xl border border-purple-800 p-2 text-black"
+                className="rounded-2xl borderp-2 text-white bg-purple-800 hover:bg-purple-700"
                 onClick={() => handleSendSurvey()}
             >
                 Send Survey

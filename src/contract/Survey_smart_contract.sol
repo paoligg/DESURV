@@ -12,12 +12,13 @@ contract SurveyContract {
         string description;
         string public_key;
         uint256 nombre_question;
+        string nom_enseigne;
     }
 
     struct Answer {
         uint surveyId;
         address respondent;
-        string[] answers;
+        string answers;
     }
 
     Survey[] public surveys; // Stores surveys
@@ -30,19 +31,19 @@ contract SurveyContract {
     event SurveyAnswered(uint surveyId, address respondent);
 
     // Create a new survey with multiple questions
-    function createSurvey(string memory _questions, uint _maxResponses,string memory _description,string memory _publique_key,uint256 _nombre_question) public payable {
+    function createSurvey(string memory _questions, uint _maxResponses,string memory _description,string memory _publique_key,uint256 _nombre_question, string memory nom_enseigne) public payable {
         require(msg.value > 0, "Reward must be more than 0");
         require(_maxResponses > 0, "There must be at least one response allowed");
         require(msg.value >= _maxResponses, "Reward must cover all responses");
 
-        surveys.push(Survey(surveyCount, payable(msg.sender), msg.value, _maxResponses, _questions, 0, true,_description,_publique_key,_nombre_question));
+        surveys.push(Survey(surveyCount, payable(msg.sender), msg.value, _maxResponses, _questions, 0, true,_description,_publique_key,_nombre_question, nom_enseigne));
         surveyCount++;
 
         emit SurveyCreated(surveyCount - 1, _questions, _maxResponses, msg.value);
     }
 
     // Answer a survey with multiple responses
-    function answerSurvey(uint _surveyId, string[] memory _answers) public {
+    function answerSurvey(uint _surveyId, string memory _answers) public {
         Survey storage survey = surveys[_surveyId];
 
         require(survey.open == true, "Survey is not open");

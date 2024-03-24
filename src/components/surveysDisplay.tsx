@@ -36,7 +36,7 @@ export const SurveyDisplay: React.FC = () => {
         <div className="flex flex-row justify-center items-center">
             <button
                 onClick={() => scroll('left')}
-                className="z-10 mr-2 bg-gray-100 p-2 rounded-full shadow-lg"
+                className="z-10 mr-2 bg-purple-300 p-2 rounded-full shadow-lg"
                 aria-label="Scroll left"
             >
                 &#8678;
@@ -52,7 +52,6 @@ export const SurveyDisplay: React.FC = () => {
                                     <br></br>
                                     <a 
                                         className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
-                                        //href with survey id in search params
                                         href={`/replySurvey?surveyid=${index}`}>
                                         Answer
                                     </a>
@@ -63,7 +62,7 @@ export const SurveyDisplay: React.FC = () => {
             </div>
             <button
                 onClick={() => scroll('right')}
-                className="z-10 ml-2 bg-gray-100 p-2 rounded-full shadow-lg"
+                className="z-10 ml-2 bg-purple-300 p-2 rounded-full shadow-lg"
                 aria-label="Scroll right"
             >
                 &#8680;

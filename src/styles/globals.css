@@ -2,25 +2,37 @@
 
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family:Chakra Petch, sans-serif;
+    padding: 0;
+    margin: 0;
+    font-family:
+        Chakra Petch,
+        sans-serif;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root{
-    @apply text-white w-screen h-screen ;
-    background : linear-gradient(135deg, rgb(148, 1, 197) 5%, rgb(36, 8, 26) 35%, rgb(0, 0, 0) 67%, rgb(168, 5, 141) 95%);
+:root {
+    @apply text-white;
+    background: linear-gradient(
+        135deg,
+        rgb(148, 1, 197) 5%,
+        rgb(36, 8, 26) 35%,
+        rgb(0, 0, 0) 67%,
+        rgb(168, 5, 141) 95%
+    );
+}
+
+body {
+    @apply flex min-h-screen flex-col;
 }
