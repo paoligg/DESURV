@@ -89,31 +89,34 @@ export default function CreateSurveyComponent() {
 
     return (
         <div className="flex flex-col items-center justify-center gap-8">
-            <h1 className='text-4xl'>Create a survey</h1>
-             <div className="flex w-1/3 flex-col gap-4">
-                <div className="flex flex-col text-black">
-             <input
-                    className="rounded-2xl border border-purple-800 p-2 text-black"
-                    type="text"
-                    value={company}
-                    placeholder="Company"
-                    onChange={(event) => setCompany(event.target.value)}
-                />
-                <br />
-                 <textarea
-                    value={description}
-                    className="h-[15vh] rounded-2xl border border-purple-800 p-2 text-black"
-                    placeholder="Description"
-                    onChange={(event) => setDescription(event.target.value)}
-                />
+            <h1 className="text-4xl">Create a survey</h1>
+            <div className="flex w-3/4 flex-row flex-wrap items-stretch justify-center gap-8 py-4">
+                <div className="flex w-1/3 flex-col gap-4">
+                    <div className="flex flex-col text-black">
+                        <input
+                            className="rounded-2xl border border-purple-800 p-2 text-black"
+                            type="text"
+                            value={company}
+                            placeholder="Company"
+                            onChange={(event) => setCompany(event.target.value)}
+                        />
+                        <br />
+                        <textarea
+                            value={description}
+                            className="h-[15vh] rounded-2xl border border-purple-800 p-2 text-black"
+                            placeholder="Description"
+                            onChange={(event) =>
+                                setDescription(event.target.value)
+                            }
+                        />
+                    </div>
                 </div>
             </div>
-            <div className="flex flex-row flex-wrap  justify-center gap-8 p-4">
-            
+            <div className="flex w-3/4 flex-row  flex-wrap items-center justify-center gap-8 py-4">
                 {questions.map((question, index) => (
                     <div
                         key={index}
-                        className="flex h-full flex-col self-stretch rounded-3xl bg-purple-500 px-4 py-10 opacity-80 shadow-[20px_20px_20px_0px] shadow-black hover:bg-purple-400"
+                        className="flex flex-col self-stretch rounded-3xl bg-purple-500 px-4 py-10 opacity-80 shadow-[20px_20px_20px_0px] shadow-black hover:bg-purple-400"
                         onBlur={() => handleBlurQuestion(index)}
                     >
                         <input
@@ -166,11 +169,9 @@ export default function CreateSurveyComponent() {
                         }
                     />
                 </div>
-               
-               
             </div>
             <button
-                className="rounded-2xl border border-purple-800 p-2 text-white bg-purple-800 hover:bg-purple-700"
+                className="rounded-2xl border border-purple-800 bg-purple-800 p-2 text-white hover:bg-purple-700"
                 onClick={() => handleSendSurvey()}
             >
                 Send Survey
