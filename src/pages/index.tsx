@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
-import SurveyDisplay from '@/components/surveysDisplay';
+import SurveyDisplay from '@/components/SurveysDisplay';
 
 const Home: NextPage = () => {
   return (

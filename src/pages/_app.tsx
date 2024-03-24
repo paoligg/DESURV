@@ -1,12 +1,12 @@
 import '../styles/globals.css';
+import { config } from '@/config';
 import '@rainbow-me/rainbowkit/styles.css';
 import type { AppProps } from 'next/app';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { WagmiProvider } from 'wagmi';
-import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
-import { config } from '@/config';
-import Navbar from '@/components/navbar';
-import Footer from '@/components/footer';
+import { getDefaultConfig, RainbowKitProvider } from '@rainbow-me/rainbowkit';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const client = new QueryClient();
 

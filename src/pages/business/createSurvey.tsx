@@ -2,9 +2,8 @@ import { createRef, useEffect, useState, RefObject } from 'react';
 import SurveyQuestion from '@/types/surveyquestion';
 import { useAccount, useWriteContract } from 'wagmi';
 import { type WriteContractParameters } from '@wagmi/core';
-import Answers from '@/components/possibleAnswers';
+import Answers from '@/components/PossibleAnswers';
 import { surveysContract } from '@/contracts';
-import RetriveData from '@/pages/business/seeSurveys';
 
 export default function CreateSurveyComponent() {
     const newQuestion = {

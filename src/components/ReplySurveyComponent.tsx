@@ -1,8 +1,8 @@
 import { useReadContract, useWriteContract, useAccount } from 'wagmi';
-import { encryptMessage, publicKeyPem, pemToPublicKey, arrayBufferToBase64 } from './encrypt_message';
+import { encryptMessage, publicKeyPem, pemToPublicKey, arrayBufferToBase64 } from './Encrypt_message';
 import { surveysContract } from '@/contracts';
 import SurveyQuestion from '@/types/surveyquestion';
-import ChooseAnswer from './chooseAnswer';
+import ChooseAnswer from './ChooseAnswer';
 import { useEffect, useState } from 'react';
 
 export interface Reply{
@@ -10,7 +10,7 @@ export interface Reply{
     choice: number;
 }
 
-export default function replySurveyComponent({ surveyID }: { surveyID: number }) {
+export default function ReplySurveyComponent({ surveyID }: { surveyID: number }) {
     console.log('surveyId',surveyID);
     const account = useAccount();
     const { data: survey } = useReadContract({

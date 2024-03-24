@@ -1,7 +1,7 @@
 import { useSearchParams } from 'next/navigation';
-import ReplySurveyComponent from '@/components/replySurveyComponent';
+import ReplySurveyComponent from '@/components/ReplySurveyComponent';
 
-export default function replySurvey() {
+export default function ReplySurvey() {
     //get from url search params the survey id
     let urlParams = useSearchParams();
     const surveyID = parseInt(urlParams.get('surveyid') ?? '-1');
