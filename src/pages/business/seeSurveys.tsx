@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { config } from '@/config';
 import { surveysContract } from '@/contracts';
 import { readContract } from '@wagmi/core';
-import AnswerCard from '@/components/decrypt_message';
+import AnswerCard from '@/components/Decrypt_message';
 
 export function RetrieveData() {
     // Remove the prop {index} as you want the index to be input directly
