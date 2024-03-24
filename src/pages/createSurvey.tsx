@@ -115,8 +115,8 @@ export default function CreateSurveyComponent() {
                 <button
                     disabled={
                         questions[questions.length - 1].survey.question == '' ||
-                        questions[questions.length - 1].survey.possibleAnswers
-                            .length == 0
+                        (questions[questions.length - 1].survey
+                            .possibleAnswers[0] ?? '') == ''
                     }
                     className="text-xl font-bold text-purple-800 disabled:opacity-50"
                     onClick={() => handleAddQuestion()}
