@@ -11,7 +11,7 @@ Cette plateforme révolutionne la manière dont les données de marché sont col
 ### Caractéristiques principales
 
 - **Réponses et données sécurisées** : Grâce au chiffrement et à la blockchain, toutes les informations partagées restent privées et protégées.
-- **Rétribution équitable** : Les utilisateurs sont rémunérés en tokens pour chaque sondage complété, avec un système de récompenses transparent.
+- **Rétribution équitable** : Les utilisateurs sont rémunérés en tokens pour chaque sondage complété, proportionnellement au nombre de tokens que l'entreprise a déposés dans le smart contract ainsi qu'au nombre de réponses attendues.
 - **Sans intermédiaire** : Une plateforme directe entre entreprises et consommateurs, réduisant les coûts et augmentant l'efficacité des études de marché.
 - **Facilité d'utilisation** : Une interface intuitive pour les utilisateurs et les entreprises, rendant la participation aux sondages et l'accès aux données simple et accessible.
 
