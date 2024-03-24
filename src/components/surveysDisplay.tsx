@@ -47,7 +47,7 @@ export const SurveyDisplay: React.FC = () => {
                         .slice(visibleRange[0], visibleRange[1])
                         .map(index => (
                             <div className="snap-start shrink-0 first:ml-auto last:mr-auto" key={index}>
-                                <div className="min-w-[300px] rounded-lg shadow-md p-4 shadow-[20px_20px_20px_0_rgba(0,0,0,1)] bg-red-500 rounded-3xl hover:bg-red-400">
+                                <div className="min-w-[300px] rounded-lg shadow-md p-4 shadow-[8px_8px_8px_0_rgba(139,0,0,1)] bg-red-500 bg-opacity-70 rounded-3xl hover:bg-red-400">
                                     <SurveyContent index={index} />
                                     <a 
                                         className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
