@@ -5,7 +5,7 @@ import { type WriteContractParameters } from '@wagmi/core';
 import Answers from '@/components/PossibleAnswers';
 import { surveysContract } from '@/contracts';
 
-export default function CreateSurveyComponent() {
+export default function CreateSurvey() {
     const newQuestion = {
         questionRef: createRef<HTMLInputElement>(),
         survey: {

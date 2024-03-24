@@ -4,7 +4,7 @@ import { surveysContract } from '@/contracts';
 import { readContract } from '@wagmi/core';
 import AnswerCard from '@/components/Decrypt_message';
 
-export function RetrieveData() {
+export default function SeeSurveys() {
     // Remove the prop {index} as you want the index to be input directly
 
     const [survey, setSurvey] = useState<any>();
@@ -58,5 +58,3 @@ export function RetrieveData() {
         </div>
     );
 }
-
-export default RetrieveData;
