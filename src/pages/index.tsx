@@ -1,8 +1,5 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
-import EncryptStringComponent from '@/components/encrypt_message';
-import DecryptStringComponent from '@/components/decrypt_message';
-import CreateSurvey from '@/components/createsurvey';
 import SurveyDisplay from '@/components/surveysDisplay';
 
 const Home: NextPage = () => {
