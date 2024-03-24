@@ -4,6 +4,11 @@
 
 Bienvenue sur DESURV la plateforme de sondages rémunérés décentralisée, une innovation permettant de connecter directement les entreprises et les consommateurs sans aucun intermédiaire. Notre solution utilise la technologie blockchain et la cryptograhie asymétrique pour sécuriser les réponses et les données partagées, garantissant une transparence totale et une rémunération équitable pour les contributions des utilisateurs.
 
+## Lien du projet
+
+Notre solution est live !
+Vous pouvez directement tester notre projet à cette adresse : https://desurv.vercel.app/
+
 ## À propos du projet
 
 Cette plateforme révolutionne la manière dont les données de marché sont collectées et partagées. En s'appuyant sur une infrastructure décentralisée, nous offrons un espace où les utilisateurs peuvent partager leurs opinions et informations de manière sécurisée en choisissant à quelles entreprises ils souhaitent les partagés, tout en étant rémunérés pour leur temps et leurs efforts. Les entreprises, de leur côté, accèdent à des insights précieux directement depuis leur public cible, sans les coûts ou les complexités des intermédiaires traditionnels.
