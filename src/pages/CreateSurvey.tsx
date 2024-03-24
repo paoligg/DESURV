@@ -4,6 +4,7 @@ import { useAccount, useWriteContract } from 'wagmi';
 import { type WriteContractParameters } from '@wagmi/core';
 import Answers from '@/components/PossibleAnswers';
 import { surveysContract } from '@/contracts';
+import RetriveData from '@/components/retrievedata';
 
 export default function CreateSurveyComponent() {
     const newQuestion = {
@@ -176,6 +177,9 @@ export default function CreateSurveyComponent() {
             >
                 Send Survey
             </button>
+            <div>
+                <RetriveData/>
+            </div>
         </div>
     );
 }
